@@ -112,8 +112,8 @@ var Broadcast = /** @class */ (function () {
 //class test {
 //    public name = "test";
 //    public doing() {
-//        Dispense.default().addListener(this, "balanceUpdate", this.balanceUpdate);
-//        Dispense.default().addListener(this, "statusUpdate", this.statusUpdate);
+//        Broadcast.default().addListener(this, "balanceUpdate", this.balanceUpdate);
+//        Broadcast.default().addListener(this, "statusUpdate", this.statusUpdate);
 //    }
 //    private balanceUpdate(dis,data) {
 //        console.log(dis,data);
@@ -125,8 +125,8 @@ var Broadcast = /** @class */ (function () {
 //class test2 {
 //    public name = "test2";
 //    public doing() {
-//        Dispense.default().addListener(this, "balanceUpdate", this.balanceUpdate);
-//        Dispense.default().addListener(this, "statusUpdate", this.statusUpdate);
+//        Broadcast.default().addListener(this, "balanceUpdate", this.balanceUpdate);
+//        Broadcast.default().addListener(this, "statusUpdate", this.statusUpdate);
 //    }
 //    private balanceUpdate(dis, data) {
 //        console.log(dis, data);
@@ -139,6 +139,6 @@ var Broadcast = /** @class */ (function () {
 //aa.doing();
 //let bb = new test2();
 //bb.doing();
-//Dispense.default().post("balanceUpdate", 10000);
-//Dispense.default().post("statusUpdate", 2);
+//Broadcast.default().post("balanceUpdate", 10000);
+//Broadcast.default().post("statusUpdate", 2);
 //# sourceMappingURL=Broadcast.js.map

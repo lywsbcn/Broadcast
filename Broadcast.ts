@@ -118,9 +118,9 @@
 //    public name = "test";
 
 //    public doing() {
-//        Dispense.default().addListener(this, "balanceUpdate", this.balanceUpdate);
+//        Broadcast.default().addListener(this, "balanceUpdate", this.balanceUpdate);
 
-//        Dispense.default().addListener(this, "statusUpdate", this.statusUpdate);
+//        Broadcast.default().addListener(this, "statusUpdate", this.statusUpdate);
 
 
 //    }
@@ -139,9 +139,9 @@
 //    public name = "test2";
 
 //    public doing() {
-//        Dispense.default().addListener(this, "balanceUpdate", this.balanceUpdate);
+//        Broadcast.default().addListener(this, "balanceUpdate", this.balanceUpdate);
 
-//        Dispense.default().addListener(this, "statusUpdate", this.statusUpdate);
+//        Broadcast.default().addListener(this, "statusUpdate", this.statusUpdate);
 
 
 //    }
@@ -163,5 +163,5 @@
 //bb.doing();
 
 
-//Dispense.default().post("balanceUpdate", 10000);
-//Dispense.default().post("statusUpdate", 2);
+//Broadcast.default().post("balanceUpdate", 10000);
+//Broadcast.default().post("statusUpdate", 2);
