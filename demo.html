@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="jui.css" rel="stylesheet" />
+    <title></title>
+    <script src="Extend.js"></script>
+    <script src="md5.js"></script>
+    <script src="Jform.js"></script>
+    <script src="JEvent.js"></script>
+    <script src="Jui.js"></script>
+</head>
+<body>
+    <style>
+        html,
+        body {
+            font-size: 12px;
+        }
+
+        .jui-demo > li {
+            margin-top: 10px;
+        }
+    </style>
+
+    <input name="username" value="root" />
+    <select name="usertype"><option value="1">1</option><option value="2">2</option></select>
+    <label><input type="radio" name="status" value="1" checked></label>
+    <label><input type="radio" name="status" value="2"></label>
+    <input type="checkbox" name="tag" value="1" />
+    <input type="checkbox" name="tag" value="1" />
+    <input type="checkbox" name="tag" value="2" />
+    <input type="checkbox" name="tag" value="3" />
+    <input type="checkbox" name="tag" value="4" />
+    <div name="other">ts</div>
+
+
+    <ul class="jui-demo">
+
+        <li>
+            <x-switch checked name="switch"><span>是</span><span>否</span></x-switch>
+        </li>
+        <li>
+            <x-switch-ios checked name="switch_ios"></x-switch-ios>
+        </li>
+        <li>
+            <x-checkbox checked value="1" name="x_checkbox"></x-checkbox>
+        </li>
+
+        <li>
+            <x-radio name="ratio2" value="1" checked>ratio</x-radio>
+            <x-radio name="ratio2" value="2">ratio</x-radio>
+        </li>
+        <li>
+            <x-enum name="enum">
+                <a checked value="1">正常</a>
+                <a value="2">待驗證</a>
+                <a value="3">待審核</a>
+                <a value="4">禁用</a>
+            </x-enum>
+        </li>
+
+        <li>
+            <x-tab>
+                <x-tab-button>
+                    <x-i selected tabname="a1">中文</x-i>
+                    <x-i tabname="a2">中文</x-i>
+                    <x-i tabname="a3">中文</x-i>
+                </x-tab-button>
+                <x-tab-content>
+                    <textarea tabname="a1" selected>1</textarea>
+                    <textarea tabname="a2">2</textarea>
+                    <textarea tabname="a3">3</textarea>
+                </x-tab-content>
+            </x-tab>
+
+        </li>
+
+        <li>
+            <x-input-file>
+                <div><input /></div>
+                <fileview><div>浏览...</div><input type="file" at="upload"></fileview>
+            </x-input-file>
+
+        </li>
+    </ul>
+
+</body>
+</html>

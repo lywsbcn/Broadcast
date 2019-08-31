@@ -5,7 +5,7 @@
      * 默认的通知队列
      * */
     public static default() {
-        if (!this.manager)
+        if (!this.manager) 
             this.manager = new Broadcast();
 
         return this.manager;
