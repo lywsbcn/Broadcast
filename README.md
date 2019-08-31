@@ -18,7 +18,7 @@ Broadcast.default().removeListener(this)
 ```
 
 # 设置 dom 对象的样式,注意该方法会覆盖原来的样式(css文件内的除外)
-Element.prototype.setStyle(); 
+Element.prototype.setStyle = function (style: StyleStringInterface)
 
 # 如:
   var demo = document.getElementById("demo")
@@ -28,14 +28,60 @@ Element.prototype.setStyle();
   })
 
 # 更新 dom 对象的样式,注意:属性名称必须使用 驼峰命名规则
- Element.prototype.updateStyle();
+Element.prototype.updateStyle = function (style: StyleInterface)
 
  demo.updateStrle({
 	backgroundColor:"#fff",
 	color:"#000"
  })
 
- ...
+# 设置 at 属性
+Element.prototype.at = function (action: string)
+
+# 添加 子对象
+Element.prototype.addSubview = function ()
+
+	let sub1 = documnet.createElement('span');
+	let sub2 = documnet.createElement('span');
+
+	demo.addSubview(sub1,sub2);
+
+# 设置 innerHTML
+Element.prototype.html = function (string)
+
+# 根据选择器 获取 父级dom对象,没有找到返回 null
+Element.prototype.parent = function (selector?) 
+
+#HTMLInputElement
+	intVal    #获取表单 int值
+	floatVal  #获取表单 float值
+	md5Val    #获取表单 md5值
+	unitVal(a: 's'|'e') #获取表单 unit时间戳值
+
+    /**
+	* <input id='input' />
+	*
+	*  let input = document.getElementById('input');
+    *  let iv = input.intVal;
+	*  let fv = input.floatVal;
+	*  let md5 = input.md5Val;
+	*  let unit = input.unitVal('s');
+	*/
+
+#HTMLSelectElement
+HTMLSelectElement.prototype.sub = function (item, selected)
+
+    /**
+	* <select id='select' /></select>
+	*
+	*  let select = document.getElementById('select');
+	*  select.sub({"1":"启用",2:"停用"})
+	*
+	*/
+
+#String
+ #去除首尾空格
+ String.prototype.trim = function ()
 
 ```
 
