@@ -38,6 +38,15 @@ Element.prototype.parent = function (selector) {
     }
     return null;
 };
+Element.prototype.addClass = function () {
+    for (var x in arguments) {
+        var list_1 = arguments[x].split(" ");
+        for (var y in list_1) {
+            this.classList.add(list_1[y]);
+        }
+    }
+    return this;
+};
 /******************************************HTMLInputElement***********************************************/
 Object.defineProperty(HTMLElement.prototype, 'intVal', {
     get: function () {
@@ -112,4 +121,16 @@ Object.defineProperty(String.prototype, "C", {
 Object.isArray = function (a) {
     return Object.prototype.toString.call(a) == '[object Array]';
 };
+Object.defineProperty(String.prototype, "Lreplace", {
+    get: function () {
+        return this.replace(new RegExp("\\{\\{([^\\[\\]]*?)\\}\\}", 'igm'), function (node, key) {
+            try {
+                return key.L;
+            }
+            catch (e) {
+                return key;
+            }
+        });
+    }
+});
 //# sourceMappingURL=Extend.js.map

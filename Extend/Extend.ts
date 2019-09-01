@@ -51,7 +51,18 @@ Element.prototype.parent = function (selector?) {
     }
 
     return null;
+}
 
+Element.prototype.addClass = function () {
+
+    for (var x in arguments) {
+        let list = arguments[x].split(" ")
+        for (var y in list) {
+            this.classList.add(list[y])
+        }
+    }
+
+    return this;
 }
 
 /******************************************HTMLInputElement***********************************************/
@@ -143,3 +154,15 @@ Object.isArray = function (a) {
     return Object.prototype.toString.call(a) == '[object Array]';
 
 }
+
+Object.defineProperty(String.prototype, "Lreplace", {
+    get: function () {
+        return this.replace(new RegExp("\\{\\{([^\\[\\]]*?)\\}\\}", 'igm'), function (node, key) {
+            try {
+                return key.L
+            } catch (e) {
+                return key;
+            }
+        })
+    }
+})
