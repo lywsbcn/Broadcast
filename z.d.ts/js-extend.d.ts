@@ -1,15 +1,15 @@
 ﻿interface Element {
-    setStyle(style: StyleStringInterface): HTMLElement;
-    updateStyle(styel: StyleInterface): HTMLElement;
-    at(action: string): HTMLElement;
-    addSubview(...a): HTMLElement;
-    html(str): HTMLElement;
+    setStyle(style: StyleStringInterface);
+    updateStyle(styel: StyleInterface);
+    at(action: string);
+    addSubview(...a);
+    html(str);
     /**
      * 上级
      * @param selector
      */
     parent(selector?): HTMLElement | null;
-    addClass(...a: Array<string>): HTMLElement;
+    addClass(...a: Array<string>);
 }
 
 interface HTMLElement {

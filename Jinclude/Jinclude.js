@@ -111,6 +111,18 @@ var Jinclude = /** @class */ (function () {
     Jinclude.prototype.__unloading = function () {
         Loading.stop();
     };
+    Object.defineProperty(Jinclude.prototype, "className", {
+        get: function () {
+            try {
+                return this['constructor']['name'];
+            }
+            catch (e) {
+                return "";
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**********************请求部分****************************/
     Jinclude.cache = false;
     /**************************引入文件逻辑****************************/
