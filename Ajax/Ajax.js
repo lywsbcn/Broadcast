@@ -1,6 +1,17 @@
 var http = /** @class */ (function () {
     function http() {
     }
+    http.upload = function (url, param, success, error, isloading) {
+        var _this = this;
+        if (isloading === void 0) { isloading = true; }
+        isloading && window['Loading'] && Loading.start();
+        this.xmlAjax_request({
+            url: url,
+            data: param,
+            success: function (data, status, XHR) { _this.xmlResponse(data, success, XHR); },
+            error: function (XHR, status, err) { _this.xmlError(XHR, error, err); }
+        });
+    };
     http.json = function (url, param, success, error, isloading) {
         var _this = this;
         if (isloading === void 0) { isloading = true; }
@@ -69,7 +80,7 @@ var http = /** @class */ (function () {
             }
         };
         this.setData(_s, setting);
-        this.xmlAjax_request(setting);
+        this.xmlAjax_request(_s);
     };
     http.xmlAjax_post = function (setting) {
         setting.type = 'POST';
@@ -79,7 +90,7 @@ var http = /** @class */ (function () {
             }
         };
         this.setData(_s, setting);
-        this.xmlAjax_request(setting);
+        this.xmlAjax_request(_s);
     };
     http.xmlAjax_get = function (setting) {
         setting.type = 'GET';
@@ -214,11 +225,15 @@ var http = /** @class */ (function () {
         if (!source || !value)
             return;
         for (var x in value) {
+            if (x == 'data') {
+                source[x] = value[x];
+            }
             var d = value[x];
             if (Array.isArray(d)) {
                 source[x] = d;
             }
             if (typeof (d) === "object") {
+                source[x] === void 0 && (source[x] = {});
                 this.setData(source[x], d);
                 continue;
             }
@@ -282,7 +297,7 @@ var http = /** @class */ (function () {
     };
     return http;
 }());
-http.xmlAjax_request({
+http.xmlAjax_get({
     url: 'http://www.a.com/demo/upload/request.php',
     data: { a: "a", b: { c: "1", d: [1, 11, 2] } },
     type: "post",

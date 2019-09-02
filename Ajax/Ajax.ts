@@ -11,7 +11,17 @@
     error?: Function;
     complete?: Function;
 } 
-class http { 
+class http {
+    static upload(url: string, param: any, success: Function, error?: Function, isloading = true) {
+        isloading && window['Loading'] && Loading.start();
+        this.xmlAjax_request({
+            url: url,
+            data: param,
+            success: (data, status, XHR) => { this.xmlResponse(data, success, XHR); },
+            error: (XHR, status, err) => { this.xmlError(XHR, error, err); }
+        })
+    }
+
     static json(url: string, param: any, success: Function, error?: Function, isloading = true) {
         isloading && window['Loading'] && Loading.start();
         this.xmlAjax_json({
@@ -78,7 +88,7 @@ class http {
         }
         this.setData(_s, setting);
 
-        this.xmlAjax_request(setting);
+        this.xmlAjax_request(_s);
     }
 
     public static xmlAjax_post(setting: AjaxSettingInterface) {
@@ -90,7 +100,7 @@ class http {
         }
         this.setData(_s, setting);
 
-        this.xmlAjax_request(setting);
+        this.xmlAjax_request(_s);
     }
 
     public static xmlAjax_get(setting: AjaxSettingInterface) {
@@ -233,6 +243,9 @@ class http {
         if (!source || !value) return;
 
         for (var x in value) {
+            if (x == 'data') {
+                source[x] = value[x];
+            }
 
             var d = value[x];
 
@@ -242,7 +255,7 @@ class http {
             }
 
             if (typeof (d) === "object") {
-
+                source[x] === void 0 && (source[x] = {})
                 this.setData(source[x], d);
 
                 continue;
@@ -310,7 +323,7 @@ class http {
     }
 
 }
-http.xmlAjax_request({
+http.xmlAjax_get({
     url: 'http://www.a.com/demo/upload/request.php',
     data: { a: "a", b: { c: "1", d: [1, 11, 2] } },
     type: "post",

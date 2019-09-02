@@ -1,5 +1,5 @@
 ﻿class Loading {
-
+    
     private static amount = 0;
     private static timer = 0;
     private static delay = 500;
